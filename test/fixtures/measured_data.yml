@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project: 
+  date: 2012-07-08 14:49:30
+  value: 9.99
+
+two:
+  project: 
+  date: 2012-07-08 14:49:30
+  value: 9.99

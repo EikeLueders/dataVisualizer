@@ -14,6 +14,9 @@
   <dd><%= @project.description %></dd>
 </dl>
 
+<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               projects_path, :class => 'btn'  %>
@@ -28,3 +31,49 @@
               project_newfileupload_path(@project),
               :class => 'btn btn-primary' %>
 </div>
+
+<script type="text/javascript">
+$(function() {
+	  
+	
+		// Create the chart
+		window.chart = new Highcharts.StockChart({
+			chart : {
+				renderTo : 'container'
+			},
+
+			rangeSelector : {
+				selected : 1
+			},
+
+			title : {
+				text : 'AAPL Stock Price'
+			},
+			
+			yAxis : {
+			  title :  {
+			    text : '<%= @project.unit %>'
+			  }
+			},
+
+			series : [{
+				name : '<%= @project.unit %>',
+				data : <%= @data.html_safe %>,
+				type : 'area',
+				threshold : null,
+				tooltip : {
+					valueDecimals : 2
+				},
+				fillColor : {
+					linearGradient : {
+						x1: 0, 
+						y1: 0, 
+						x2: 0, 
+						y2: 1
+					},
+					stops : [[0, Highcharts.getOptions().colors[0]], [1, 'rgba(0,0,0,0)']]
+				}
+			}]
+		});
+});
+</script>

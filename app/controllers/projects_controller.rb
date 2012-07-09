@@ -1,3 +1,5 @@
+require 'csv'
+
 class ProjectsController < ApplicationController
   
   before_filter :authenticate_user!
@@ -18,6 +20,14 @@ class ProjectsController < ApplicationController
   def show
     @project = current_user.projects.find(params[:id])
 
+    @data = []
+    @project.measured_data.each do |datum|
+      datetime = datum.date.to_time.to_i * 1000
+      @data << [datetime, datum.value.to_f]
+    end
+
+    @data = @data.to_json
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }
@@ -27,7 +37,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   # GET /projects/new.json
   def new
-    @project = Project.new
+    @project = current_user.projects.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -91,8 +101,22 @@ class ProjectsController < ApplicationController
   def fileupload
     @project = current_user.projects.find(params[:project_id])
     
-    puts 'AUSGABEEEEEEEEEEEEEEEEEEEEEEEEEE'
-    puts params
+    Resque.enqueue(InsertDataFromCSV, @project.id, params[:datafile].tempfile)
+    
+    @project.transaction do
+      factor = @project.factor.to_f
+      lastrowvalue = 0.0
+      rowidx = 0
+      CSV.parse(params[:datafile].tempfile, {headers: true, header_converters: :symbol, col_sep: ';'}).each do |row|
+        datetime = DateTime.strptime(row[0] << 'T' << row[1], '%d.%m.%YT%H:%M:%S')
+
+        value_with_factor = row[2].to_f * factor
+        @project.measured_data.new(:date => datetime, :value => (rowidx == 0) ? 0 : value_with_factor - lastrowvalue, :aggregated_value => value_with_factor ).save!
+      
+        lastrowvalue = value_with_factor
+        rowidx += 1
+      end
+    end
     
     respond_to do |format|
       format.html {redirect_to @project, notice: 'File upload success.'}

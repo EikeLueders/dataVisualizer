@@ -11,17 +11,62 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120708124930) do
+ActiveRecord::Schema.define(:version => 20120709150908) do
+
+  create_table "approx10_min_measured_data", :force => true do |t|
+    t.integer  "project_id"
+    t.datetime "date"
+    t.decimal  "value"
+    t.decimal  "aggregated_value"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "approx10_min_measured_data", ["project_id"], :name => "index_approx10_min_measured_data_on_project_id"
+
+  create_table "approx1_day_measured_data", :force => true do |t|
+    t.integer  "project_id"
+    t.datetime "date"
+    t.decimal  "value"
+    t.decimal  "aggregated_value"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "approx1_day_measured_data", ["project_id"], :name => "index_approx1_day_measured_data_on_project_id"
 
   create_table "measured_data", :force => true do |t|
     t.integer  "project_id"
     t.datetime "date"
     t.decimal  "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.decimal  "aggregated_value"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "measured_data", ["project_id"], :name => "index_measured_data_on_project_id"
+
+  create_table "measured_datum10_mins", :force => true do |t|
+    t.integer  "project_id"
+    t.datetime "date"
+    t.decimal  "value"
+    t.decimal  "aggregated_value"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "measured_datum10_mins", ["project_id"], :name => "index_measured_datum10_mins_on_project_id"
+
+  create_table "measured_datum1_days", :force => true do |t|
+    t.integer  "project_id"
+    t.datetime "date"
+    t.decimal  "value"
+    t.decimal  "aggregated_value"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "measured_datum1_days", ["project_id"], :name => "index_measured_datum1_days_on_project_id"
 
   create_table "projects", :force => true do |t|
     t.string   "name"

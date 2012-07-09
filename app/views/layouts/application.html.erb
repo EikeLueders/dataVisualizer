@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "DataVisualizer" %></title>
     <%= csrf_meta_tags %>
+    <%= javascript_include_tag "application" %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -52,10 +53,10 @@
 		                      :method => :delete,
 		                      :class => 'btn btn-mini btn-danger' %>
 			  <% else %>
-				<%= link_to t('.destroy', :default => t("helpers.links.login")),
+				<%= link_to t('.login', :default => t("helpers.links.login")),
 		                      new_user_session_path,
 		                      :class => 'btn btn-mini' %>
-				<%= link_to t('.destroy', :default => t("helpers.links.sign_in")),
+				<%= link_to t('.sign_up', :default => t("helpers.links.sign_up")),
 		                      new_user_registration_path,
 		                      :class => 'btn btn-primary btn-mini' %>
 			  <% end %>
@@ -67,6 +68,16 @@
 
     <div class="container">
       <div class="content">
+		<div class="row">
+		  <div class="span12">
+		    <% flash.each do |name, msg| %>
+		      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+		        <a class="close" data-dismiss="alert">&#215;</a>
+		        <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+		      </div>
+		    <% end %>
+		  </div>
+	    </div>
         <div class="row">
            <div class="span12">
               <%= yield %>
@@ -82,7 +93,7 @@
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
+    
 
   </body>
 </html>

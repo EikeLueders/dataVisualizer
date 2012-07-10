@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'devise'
 gem 'resque'
 gem 'simple_form'
+gem 'foreman'
+gem 'thin'
 
 
 # Gems used only for assets and not required

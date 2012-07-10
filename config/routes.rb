@@ -1,4 +1,8 @@
+require 'resque/server'
+
 DataVisualizer::Application.routes.draw do
+  mount Resque::Server.new, :at => "/resque"
+  
   devise_for :users
 
   resources :projects do

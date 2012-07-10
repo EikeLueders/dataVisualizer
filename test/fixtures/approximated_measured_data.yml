@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project: 
+  resolution: 1
+  value: 9.99
+  date: 2012-07-10 16:11:44
+  aggregated_value: 9.99
+
+two:
+  project: 
+  resolution: 1
+  value: 9.99
+  date: 2012-07-10 16:11:44
+  aggregated_value: 9.99

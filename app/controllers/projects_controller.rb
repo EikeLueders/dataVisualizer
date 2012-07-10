@@ -20,6 +20,10 @@ class ProjectsController < ApplicationController
   def show
     @project = current_user.projects.find(params[:id])
 
+    puts '####################################################'
+    puts Resque.size('insert_data_from_csv')
+    puts '####################################################'
+    
     @data = []
     @project.measured_data.each do |datum|
       datetime = datum.date.to_time.to_i * 1000

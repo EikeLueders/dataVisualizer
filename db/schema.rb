@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120709150908) do
+ActiveRecord::Schema.define(:version => 20120710141144) do
 
   create_table "approx10_min_measured_data", :force => true do |t|
     t.integer  "project_id"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(:version => 20120709150908) do
   end
 
   add_index "approx1_day_measured_data", ["project_id"], :name => "index_approx1_day_measured_data_on_project_id"
+
+  create_table "approximated_measured_data", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "resolution"
+    t.decimal  "value"
+    t.datetime "date"
+    t.decimal  "aggregated_value"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "approximated_measured_data", ["project_id"], :name => "index_approximated_measured_data_on_project_id"
 
   create_table "measured_data", :force => true do |t|
     t.integer  "project_id"

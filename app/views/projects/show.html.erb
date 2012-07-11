@@ -8,19 +8,14 @@
 
 <%- model_class = Project -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <h1><%=t '.title', :default => "#{model_class.model_name.human}: #{@project.name}" %></h1>
+  <div style="color: #a0a0a0;margin-top:10px">
+    <%= model_class.human_attribute_name(:factor) %>: <strong><%= @project.factor %></strong>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%= model_class.human_attribute_name(:unit) %>: <strong><%= @project.unit %></strong>
+    <br />
+    <%= @project.description %>
+  </div>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @project.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:factor) %>:</strong></dt>
-  <dd><%= @project.factor %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:unit) %>:</strong></dt>
-  <dd><%= @project.unit %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @project.description %></dd>
-</dl>
 
 <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 
@@ -51,11 +46,36 @@ $(function() {
 			},
 
 			rangeSelector : {
-				selected : 1
-			},
+  			selected : 1,
+  			buttons: [
+  			{
+  				type: 'hour',
+  				count: 1,
+  				text: '1h'
+  			},
+  			{
+  				type: 'day',
+  				count: 1,
+  				text: '1d'
+  			},
+  			{
+  				type: 'month',
+  				count: 1,
+  				text: '1m'
+  			}, 
+  			{
+  				type: 'year',
+  				count: 1,
+  				text: '1y'
+  			},
+  			{
+  				type: 'all',
+  				text: 'All'
+  			}]
+  		},
 
 			title : {
-				text : 'AAPL Stock Price'
+				text : '<%= @project.name %>'
 			},
 			
 			yAxis : {
@@ -68,6 +88,9 @@ $(function() {
 				name : '<%= @project.unit %>',
 				data : <%= @data.html_safe %>,
 				type : 'area',
+				dataGrouping : {
+					enabled : false
+				},
 				threshold : null,
 				tooltip : {
 					valueDecimals : 2

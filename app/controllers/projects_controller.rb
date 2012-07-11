@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
     puts '####################################################'
     
     @data = []
-    @project.measured_data.each do |datum|
+    @project.approximated_measured_data.where('resolution = ?', 10).each do |datum|
       datetime = datum.date.to_time.to_i * 1000
       @data << [datetime, datum.value.to_f]
     end
@@ -104,25 +104,21 @@ class ProjectsController < ApplicationController
   
   def fileupload
     @project = current_user.projects.find(params[:project_id])
+
+    file = nil
+
+    begin
+      file = params[:datafile].tempfile
+    rescue
+      respond_to do |format|
+        format.html { redirect_to project_newfileupload_path(@project), alert: 'You have to choose a file to upload a file.' }
+        format.json { head :no_content }
+      end
+      return
+    end
     
-    file = params[:datafile].tempfile
-    
+    # add resque job
     Resque.enqueue(InsertDataFromCSV, @project.id, file)
-    
-    #@project.transaction do
-    #  factor = @project.factor.to_f
-    #  lastrowvalue = 0.0
-    #  rowidx = 0
-    #  CSV.parse(params[:datafile].tempfile, {headers: true, header_converters: :symbol, col_sep: ';'}).each do |row|
-    #    datetime = DateTime.strptime(row[0] << 'T' << row[1], '%d.%m.%YT%H:%M:%S')
-#
-#        value_with_factor = row[2].to_f * factor
-#        @project.measured_data.new(:date => datetime, :value => (rowidx == 0) ? 0 : value_with_factor - lastrowvalue, :aggregated_value => value_with_factor ).save!
-#      
-#        lastrowvalue = value_with_factor
-#        rowidx += 1
-#      end
-#    end
     
     respond_to do |format|
       format.html {redirect_to @project, notice: 'File upload success.'}

@@ -53,7 +53,7 @@ class MeasuredDatum < ActiveRecord::Base
     end
 
     puts 'insert_data_from_csv DONE!'
-    
+    puts "CalculateApproximatedData for project: #{project_id} with resolution from #{date_from} to #{date_to}"
     begin
       Resque.enqueue(CalculateApproximatedData, project_id, date_from, date_to, 10) #10 min
     rescue ArgumentError => e

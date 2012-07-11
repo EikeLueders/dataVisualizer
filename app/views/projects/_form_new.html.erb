@@ -1,0 +1,11 @@
+<%= simple_form_for @project, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :factor, :disabled => false, :hint => 'You cannot change the factor when it\'s set once.' %>
+  <%= f.input :unit %>
+  <%= f.input :description %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                projects_path, :class => 'btn' %>
+  </div>
+<% end %>

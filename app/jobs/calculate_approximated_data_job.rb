@@ -6,7 +6,7 @@ class CalculateApproximatedData
     #   raise ArgumentError, "invalid parameters"
     # end
     
-    puts "CalculateApproximatedData for project: #{project_id} with resolution #{resolution} from #{date_from} to #{date_to}"
+    puts "CalculateApproximatedData for project #{project_id} with resolution #{resolution} from #{date_from} to #{date_to}"
     ApproximatedMeasuredDatum.calculate_approximated_data(project_id, date_from, date_to, resolution)
   end
 end

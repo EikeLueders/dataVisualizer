@@ -25,7 +25,10 @@ class ProjectsController < ApplicationController
     puts '####################################################'
     
     @data = []
-    @project.approximated_measured_data.where('resolution = ?', 10).each do |datum|
+    #@project.measured_data.each do |datum| # besser NICHT bei vielen Daten ;)
+    #@project.approximated_measured_data.where('resolution = ?', 10).each do |datum|
+    #@project.approximated_measured_data.where('resolution = ?', 180).each do |datum|
+    @project.approximated_measured_data.where('resolution = ?', 1440).each do |datum|
       datetime = datum.date.to_time.to_i * 1000
       @data << [datetime, datum.value.to_f]
     end

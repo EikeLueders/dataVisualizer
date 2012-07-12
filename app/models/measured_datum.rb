@@ -1,7 +1,7 @@
 class MeasuredDatum < ActiveRecord::Base
   belongs_to :project
   attr_accessible :aggregated_value, :date, :value
-  validates :date, uniqueness: true
+  #validates :date, uniqueness: true
   
   def self.insert_data_from_csv(project_id, datafile)
     project = Project.find(project_id.to_i)
@@ -53,18 +53,23 @@ class MeasuredDatum < ActiveRecord::Base
     end
 
     puts 'insert_data_from_csv DONE!'
-    puts "CalculateApproximatedData for project: #{project_id} with resolution from #{date_from} to #{date_to}"
-    begin
-      Resque.enqueue(CalculateApproximatedData, project_id, date_from, date_to, 10) #10 min
-    rescue ArgumentError => e
-      puts "Error: #{e.message}"
-    end
+    
+    MeasuredDatum.enqueue_approximation_job(project_id, date_from, date_to, 10) # 10 minutes
+    MeasuredDatum.enqueue_approximation_job(project_id, date_from, date_to, 180) # 3 std
+    MeasuredDatum.enqueue_approximation_job(project_id, date_from, date_to, 1440) # 1 day
+    
+  end
+  
+  protected
+  
+  def self.enqueue_approximation_job(project_id, date_from, date_to, resolution) 
     
     begin
-      Resque.enqueue(CalculateApproximatedData, project_id, date_from, date_to, 1440) #1 day
+      Resque.enqueue(CalculateApproximatedData, project_id, date_from, date_to, resolution)
     rescue ArgumentError => e
       puts "Error: #{e.message}"
     end
     
   end
+  
 end

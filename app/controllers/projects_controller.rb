@@ -24,16 +24,16 @@ class ProjectsController < ApplicationController
     puts Resque.size('insert_data_from_csv')
     puts '####################################################'
     
-    @data = []
+    #@data = []
     #@project.measured_data.each do |datum| # besser NICHT bei vielen Daten ;)
     #@project.approximated_measured_data.where('resolution = ?', 10).each do |datum|
     #@project.approximated_measured_data.where('resolution = ?', 180).each do |datum|
-    @project.approximated_measured_data.where('resolution = ?', 1440).each do |datum|
-      datetime = datum.date.to_time.to_i * 1000
-      @data << [datetime, datum.value.to_f]
-    end
+    #@project.approximated_measured_data.where('resolution = ?', 1440).each do |datum|
+    #  datetime = datum.date.to_time.to_i * 1000
+    #  @data << [datetime, datum.value.to_f]
+    #end
 
-    @data = @data.to_json
+    #@data = @data.to_json
 
     respond_to do |format|
       format.html # show.html.erb
@@ -127,4 +127,49 @@ class ProjectsController < ApplicationController
       format.html {redirect_to @project, notice: 'File upload success.'}
     end
   end
+
+	def ajax_data_load
+		@project = Project.find(params[:project_id])
+		
+    from_timestamp, to_timestamp = params[:from], params[:to]
+		
+		logger.debug "from - to"
+		logger.debug from_timestamp
+		logger.debug to_timestamp
+		
+		from_time, to_time = Time.at(from_timestamp.to_f/1000), Time.at(to_timestamp.to_f/1000)
+		
+		interval = to_time-from_time
+		mins = interval/60
+		
+		# Verhaeltniswert berechnen
+		#prop_value = calc_resolution(mins)
+		
+		# Aufloesung aus gegebenen Aufloesungen waehlen
+		#best_resolution = get_best_resolution(prop_value, @project.resolutions)
+		best_resolution = 10
+		
+		@data = []
+    #@project.measured_data.each do |datum| # besser NICHT bei vielen Daten ;)
+    #@project.approximated_measured_data.where('resolution = ?', 10).each do |datum|
+    @project.approximated_measured_data.where('resolution = ?', best_resolution).each do |datum|
+    #@project.approximated_measured_data.where('resolution = ?', 1440).each do |datum|
+      datetime = datum.date.to_time.to_i * 1000
+      @data << [datetime, datum.value.to_f]
+    end
+
+		respond_to do |format|
+	    format.json { render json: @data }
+    end		
+	end
+	
+	protected
+	
+	def calc_resolution(mins)
+	  mins / 100_000
+	end
+	
+	def get_best_resolution(prop_val, resolutions)
+	  # Aufloesung bestimmen
+	end
 end

@@ -10,16 +10,17 @@ class TimeIntervalDiffer
   def initialize(resolution)
     @resolution = resolution
     @new_interval = false
+  
+    @interval_info = self.find_interval
   end
   
   def <<(time)
-  
-    res = self.find_interval
     
     # Methode an Time aufrufen (gibt Tag, Monat, Jahr, Stunde, .. zurueck)
-    unit = time.send(res[:look_in]) # z.B. time.day
-    @change = unit/res[:step]
+    unit = time.send(@interval_info[:look_in]) # z.B. time.day
+    @change = unit/@interval_info[:step]
     
+    # Ist das neue Datum in einem neuen Intervall?
     @new_interval = @last_change != @change if @last_change != nil
     
     @last_change = @change

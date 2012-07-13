@@ -35,6 +35,7 @@ class MeasuredDatum < ActiveRecord::Base
               end
     
               lastrowvalue = value_with_factor
+              
             rescue ActiveRecord::RecordInvalid => e
               # falls datum bereits vorhanden (wg. validates :date, uniqueness: true (s.o.))
               puts "Error: Date already exists in DB - #{e.message}"

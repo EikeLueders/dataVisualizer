@@ -10,15 +10,17 @@
 <div class="page-header">
   <h1><%=t '.title', :default => "#{model_class.model_name.human}: #{@project.name}" %></h1>
   <div style="color: #a0a0a0;margin-top:10px">
-    <%= model_class.human_attribute_name(:factor) %>: <strong><%= @project.factor %></strong>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%= model_class.human_attribute_name(:unit) %>: <strong><%= @project.unit %></strong>
+    <%= model_class.human_attribute_name(:factor) %>: <strong><%= @project.factor %></strong>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%= model_class.human_attribute_name(:unit) %>: <strong><%= @project.unit %></strong>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%= model_class.human_attribute_name(:resolutions) %>: <strong><%= @project.comma_separated_resolutions %></strong>
     <br />
     <%= @project.description %>
   </div>
 </div>
 
+<div id="container" style="min-width: 400px; height: 500px; margin: 0 auto"></div>
 
-<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
-
+<div id="nodata" class="alert alert-error" style="display:none">
+  <%= content_tag :div, "No Data yet!" %>
+</div>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -46,19 +48,47 @@ function onSetExtremes(e) {
 
 function loadData(from_timestamp, to_timestamp) {
 	
+	console.log(from_timestamp);
+	console.log(to_timestamp);	
 	// Parameter vorhanden?
-  params = "";
-  if (from_timestamp == 'undefined' || to_timestamp == 'undefined') {
-    params = '?from='+from_timestamp+'&to='+to_timestamp;
+  params = '?plotwidth=' + window.chart.plotWidth;
+  if (from_timestamp != undefined && to_timestamp != undefined) {
+    params += '&from=' + from_timestamp + '&to=' + to_timestamp;
   }
   
   window.chart.showLoading('Loading data...');
-  
+
   // Ajax-Anfrage nach Graphdaten in passender Aufloesung
   $.getJSON('<%= project_ajax_data_load_path(@project) %>.json' + params, function(data) {        
-    if (data) {
-			window.chart.series[0].setData(data, false);
-      window.chart.redraw();
+    if (data.length) {
+      xData = window.chart.series[0].xData;
+      
+      if (xData.length != 0) {
+        firstIndex = -1;
+        lastIndex = -1;
+      
+        for (var i = 0; i < xData.length; i++) {
+          if (xData[i] >= data[0][0] && firstIndex == -1) {
+            firstIndex = i;
+          };
+          if (xData[i] >= data[data.length-1][0] && lastIndex == -1) {
+            lastIndex = i;
+          };
+        }
+
+        chartData = window.chart.series[0].options.data;
+        dataLength = chartData.length;      
+        lastArray = chartData.slice(lastIndex, dataLength - 1);
+        firstArray = chartData.slice(0, firstIndex);
+        newData = $.merge($.merge(firstArray, data), lastArray)
+        
+        window.chart.series[0].setData(newData, true);
+      } else {
+        window.chart.series[0].setData(data, true);
+      }
+    } else {
+      $('#container').hide();
+      $('#nodata').show();
     }
     //window.chart.options = { subtitle : { text : data.length + " data elements has been loaded" } };
     window.chart.hideLoading();
@@ -113,7 +143,8 @@ $(function() {
 	  xAxis : {
 		  events : {
 			  setExtremes : onSetExtremes
-		  }			
+		  }	,		
+		  ordinal: false
     },
 		
 		yAxis : {

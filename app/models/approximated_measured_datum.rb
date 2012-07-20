@@ -35,9 +35,6 @@ class ApproximatedMeasuredDatum < ActiveRecord::Base
             approx_datum = project.approximated_measured_data.new(:date => approx_interval_datum[:date], :resolution => resolution, :value => approx_interval_datum[:value], :aggregated_value => approx_interval_datum[:aggregated_value])
             approx_datum.save!
             
-            #puts "  >> #{approx_datum.date}, #{approx_datum.value}, #{approx_datum.aggregated_value}"
-            #puts
-            
             # reset
             data_to_approx = []
             next_timespan = false

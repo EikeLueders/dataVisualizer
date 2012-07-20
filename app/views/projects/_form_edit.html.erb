@@ -2,6 +2,7 @@
   <%= f.input :name %>
   <%= f.input :factor, :disabled => true, :hint => 'You cannot change the factor.' %>
   <%= f.input :unit %>
+    <%= f.input :comma_separated_resolutions, :disabled => true, :hint => 'Example: "10, 60, 1440" (in minutes)', :label => 'Resolutions' %>
   <%= f.input :description %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary' %>

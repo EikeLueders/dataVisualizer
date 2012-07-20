@@ -54,11 +54,11 @@ class MeasuredDatum < ActiveRecord::Base
     end
 
     puts 'insert_data_from_csv DONE!'
-    
-    MeasuredDatum.enqueue_approximation_job(project_id, date_from, date_to, 10) # 10 minutes
-    MeasuredDatum.enqueue_approximation_job(project_id, date_from, date_to, 180) # 3 std
-    MeasuredDatum.enqueue_approximation_job(project_id, date_from, date_to, 1440) # 1 day
-    
+
+    #calculate resolutions for the project
+    project.resolutions.each do |r|
+      MeasuredDatum.enqueue_approximation_job(project_id, date_from, date_to, r.value)
+    end
   end
   
   protected

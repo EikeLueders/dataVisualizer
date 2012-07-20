@@ -22,3 +22,5 @@ dump.rdb
 *~
 
 log/*
+
+db/development.sqlite3

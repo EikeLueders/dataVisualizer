@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120710141144) do
+ActiveRecord::Schema.define(:version => 20120720152613) do
 
   create_table "approximated_measured_data", :force => true do |t|
     t.integer  "project_id"
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(:version => 20120710141144) do
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
+
+  create_table "resolutions", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "resolutions", ["project_id"], :name => "index_resolutions_on_project_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

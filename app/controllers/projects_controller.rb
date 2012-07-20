@@ -131,45 +131,57 @@ class ProjectsController < ApplicationController
 	def ajax_data_load
 		@project = Project.find(params[:project_id])
 		
-    from_timestamp, to_timestamp = params[:from], params[:to]
-		
-		logger.debug "from - to"
-		logger.debug from_timestamp
-		logger.debug to_timestamp
-		
-		from_time, to_time = Time.at(from_timestamp.to_f/1000), Time.at(to_timestamp.to_f/1000)
-		
-		interval = to_time-from_time
-		mins = interval/60
-		
-		# Verhaeltniswert berechnen
-		#prop_value = calc_resolution(mins)
-		
-		# Aufloesung aus gegebenen Aufloesungen waehlen
-		#best_resolution = get_best_resolution(prop_value, @project.resolutions)
-		best_resolution = 10
-		
 		@data = []
-    #@project.measured_data.each do |datum| # besser NICHT bei vielen Daten ;)
-    #@project.approximated_measured_data.where('resolution = ?', 10).each do |datum|
-    @project.approximated_measured_data.where('resolution = ?', best_resolution).each do |datum|
-    #@project.approximated_measured_data.where('resolution = ?', 1440).each do |datum|
-      datetime = datum.date.to_time.to_i * 1000
-      @data << [datetime, datum.value.to_f]
-    end
-
+		
+		if not @project.measured_data.empty?
+  		if params.has_key?(:from) and params.has_key?(:to)
+  		  from_timestamp, to_timestamp = params[:from], params[:to]
+  		  from_time, to_time = Time.at(from_timestamp.to_f/1000), Time.at(to_timestamp.to_f/1000)
+      else 
+        from_time = @project.measured_data.minimum(:date)
+        to_time = @project.measured_data.maximum(:date)
+      end
+    
+      plot_width = params[:plotwidth].to_i
+		
+  		interval = to_time - from_time
+  		calc_resolution = (interval / 60) / (plot_width / 2)
+		
+  		# Aufloesung aus gegebenen Aufloesungen waehlen
+  		best_resolution = get_best_resolution(calc_resolution, @project.resolutions.map { |r| r.value })
+		
+  		db_from = from_time.strftime("%Y-%m-%d %H:%M:%S")
+      db_to = to_time.strftime("%Y-%m-%d %H:%M:%S")
+    		
+  		if best_resolution == 2
+  		  cond = "date BETWEEN '#{db_from}' AND '#{db_to}'"
+  		  query = @project.measured_data.all(:order => 'date ASC', :conditions => [cond])
+  		else
+  		  cond = "date BETWEEN '#{db_from}' AND '#{db_to}' AND resolution = #{best_resolution}"
+  		  query = @project.approximated_measured_data.all(:order => 'date ASC', :conditions => [cond])
+  		end
+		
+  		query.each do |datum|
+        datetime = datum.date.to_time.to_i * 1000
+        @data << [datetime, datum.value.to_f]
+      end
+    end 
 		respond_to do |format|
-	    format.json { render json: @data }
-    end		
+		  format.json { render json: @data }
+		end
 	end
 	
 	protected
 	
-	def calc_resolution(mins)
-	  mins / 100_000
-	end
-	
 	def get_best_resolution(prop_val, resolutions)
-	  # Aufloesung bestimmen
+	  resolutions << 2
+	  
+	  abs_values = {}
+	  resolutions.each do |r|
+	    abs_values[(prop_val - r).abs] = r
+    end
+    
+    min_key = abs_values.keys.min
+    abs_values[min_key]
 	end
 end

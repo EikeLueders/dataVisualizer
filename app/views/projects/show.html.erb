@@ -47,9 +47,8 @@ function onSetExtremes(e) {
 }
 
 function loadData(from_timestamp, to_timestamp) {
-	
-	console.log(from_timestamp);
-	console.log(to_timestamp);	
+	//console.log(from_timestamp);
+	//console.log(to_timestamp);	
 	// Parameter vorhanden?
   params = '?plotwidth=' + window.chart.plotWidth;
   if (from_timestamp != undefined && to_timestamp != undefined) {
@@ -60,18 +59,19 @@ function loadData(from_timestamp, to_timestamp) {
 
   // Ajax-Anfrage nach Graphdaten in passender Aufloesung
   $.getJSON('<%= project_ajax_data_load_path(@project) %>.json' + params, function(data) {        
-    if (data.length) {
+    if (data[0].length) {
       xData = window.chart.series[0].xData;
+      xDataAggregated = window.chart.series[1].xData;
       
-      if (xData.length != 0) {
+      if (xData.length != 0 && xDataAggregated.length != 0) {
         firstIndex = -1;
         lastIndex = -1;
       
         for (var i = 0; i < xData.length; i++) {
-          if (xData[i] >= data[0][0] && firstIndex == -1) {
+          if (xData[i] >= data[0][0][0] && firstIndex == -1) {
             firstIndex = i;
           };
-          if (xData[i] >= data[data.length-1][0] && lastIndex == -1) {
+          if (xData[i] >= data[0][data[0].length-1][0] && lastIndex == -1) {
             lastIndex = i;
           };
         }
@@ -80,11 +80,28 @@ function loadData(from_timestamp, to_timestamp) {
         dataLength = chartData.length;      
         lastArray = chartData.slice(lastIndex, dataLength - 1);
         firstArray = chartData.slice(0, firstIndex);
-        newData = $.merge($.merge(firstArray, data), lastArray)
+        newData = $.merge($.merge(firstArray, data[0]), lastArray)
+        
+        for (var i = 0; i < xDataAggregated.length; i++) {
+          if (xDataAggregated[i] >= data[1][0][0] && firstIndex == -1) {
+            firstIndex = i;
+          };
+          if (xDataAggregated[i] >= data[1][data[1].length-1][0] && lastIndex == -1) {
+            lastIndex = i;
+          };
+        }
+        
+        chartDataAggregated = window.chart.series[1].options.data;
+        dataLength = chartDataAggregated.length;      
+        lastArray = chartDataAggregated.slice(lastIndex, dataLength - 1);
+        firstArray = chartDataAggregated.slice(0, firstIndex);
+        newDataAggregated = $.merge($.merge(firstArray, data[1]), lastArray)
         
         window.chart.series[0].setData(newData, true);
+        window.chart.series[1].setData(newDataAggregated, true);
       } else {
-        window.chart.series[0].setData(data, true);
+        window.chart.series[0].setData(data[0], true);
+        window.chart.series[1].setData(data[1], true);
       }
     } else {
       $('#container').hide();
@@ -100,7 +117,8 @@ $(function() {
 	// Create the chart
 	window.chart = new Highcharts.StockChart({
 		chart : {
-			renderTo : 'container'
+			renderTo : 'container',
+			zoomType: 'x'
 		},
 		
 		credits : {
@@ -143,26 +161,46 @@ $(function() {
 	  xAxis : {
 		  events : {
 			  setExtremes : onSetExtremes
-		  }	,		
+		  },
 		  ordinal: false
     },
 		
-		yAxis : {
-		  title :  {
-		    text : '<%= @project.unit %>'
-		  }
+		point : {
+		  color : '#C80000'
 		},
-
+		
+		yAxis : [{
+		  title :  {
+		    text : 'Current <%= @project.unit %>'
+		  },
+		},
+		{
+		  title :  {
+		    text : 'Total <%= @project.unit %>',
+		    style: {
+        	color: '#C80000'
+        }
+		  },
+		  labels : {
+		    style: {
+        	color: '#C80000'
+        }
+		  },
+		  opposite: true
+		}],
+		
 		series : [{
-			name : '<%= @project.unit %>',
+			name : 'Current',
 			type : 'area',
 			dataGrouping : {
 				enabled : false
 			},
-			threshold : null,
 			tooltip : {
-				valueDecimals : 2
+				valueDecimals : 2,
+				valueSuffix : ' <%= @project.unit %>'
 			},
+			yAxis: 0,
+			cropThreshold: 0,
 			fillColor : {
 				linearGradient : {
 					x1: 0, 
@@ -172,6 +210,20 @@ $(function() {
 				},
 				stops : [[0, Highcharts.getOptions().colors[0]], [1, 'rgba(0,0,0,0)']]
 			}
+		},
+		{
+			name : 'Total',
+			type : 'line',
+			dataGrouping : {
+				enabled : false
+			},
+    	color: '#C80000',
+			tooltip : {
+				valueDecimals : 2,
+				valueSuffix : ' <%= @project.unit %>'
+			},
+			yAxis: 1,
+			cropThreshold: 0
 		}]
 	});
 

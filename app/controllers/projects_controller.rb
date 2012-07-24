@@ -23,17 +23,6 @@ class ProjectsController < ApplicationController
     puts '####################################################'
     puts Resque.size('insert_data_from_csv')
     puts '####################################################'
-    
-    #@data = []
-    #@project.measured_data.each do |datum| # besser NICHT bei vielen Daten ;)
-    #@project.approximated_measured_data.where('resolution = ?', 10).each do |datum|
-    #@project.approximated_measured_data.where('resolution = ?', 180).each do |datum|
-    #@project.approximated_measured_data.where('resolution = ?', 1440).each do |datum|
-    #  datetime = datum.date.to_time.to_i * 1000
-    #  @data << [datetime, datum.value.to_f]
-    #end
-
-    #@data = @data.to_json
 
     respond_to do |format|
       format.html # show.html.erb
@@ -132,6 +121,7 @@ class ProjectsController < ApplicationController
 		@project = Project.find(params[:project_id])
 		
 		@data = []
+		@data_aggregated = []
 		
 		if not @project.measured_data.empty?
   		if params.has_key?(:from) and params.has_key?(:to)
@@ -164,10 +154,11 @@ class ProjectsController < ApplicationController
   		query.each do |datum|
         datetime = datum.date.to_time.to_i * 1000
         @data << [datetime, datum.value.to_f]
+        @data_aggregated << [datetime, datum.aggregated_value.to_f]
       end
     end 
 		respond_to do |format|
-		  format.json { render json: @data }
+		  format.json { render json: [@data, @data_aggregated] }
 		end
 	end
 	

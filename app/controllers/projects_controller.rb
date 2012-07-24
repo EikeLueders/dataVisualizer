@@ -113,7 +113,7 @@ class ProjectsController < ApplicationController
     Resque.enqueue(InsertDataFromCSV, @project.id, file)
     
     respond_to do |format|
-      format.html {redirect_to @project, notice: 'File upload success.'}
+      format.html {redirect_to @project, notice: 'File upload success. Please wait a few seconds, while all data is processed...'}
     end
   end
 

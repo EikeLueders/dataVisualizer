@@ -28,7 +28,7 @@ class ApproximatedMeasuredDatum < ActiveRecord::Base
           differ << datum.date.to_time
         
           if differ.new_interval? or i == (measured_data_list.length - 1)
-        
+            
             # Approximierte Werte fuer gegebene Datums errechnen
             approx_interval_datum = approximate_interval_data(data_to_approx)
             

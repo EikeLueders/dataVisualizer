@@ -16,21 +16,27 @@ class Project < ActiveRecord::Base
   validates :factor, :numericality => { :only_decimal => true }
   
   validates :comma_separated_resolutions, :presence => true
-  #validates :comma_separated_resolutions, :format => { :with => /^\s*(\d+(\s*,\s*\d+)*)?\s*$/, :message => "Please write comma delimited integer like '10,60,720,1440'" }
+  validates :comma_separated_resolutions, :format => { :with => /^\s*(\d+(\s*,\s*\d+)*)?\s*$/, :message => "Please write comma delimited integers like '10,60,720,1440'" }
+  
+  after_create do
+    resolution_values = self.comma_separated_resolutions.split(/\s?,\s?/)
+    
+    # check if the resolution already exists, else create
+    self.resolutions = resolution_values.map { |value| self.resolutions.where('value = ?', value).first or self.resolutions.create(:value => value) }
+  end
   
   # getter / setter for resolution value
   def comma_separated_resolutions
-    if self.resolutions.empty?
-      return
+    if @comma_separated_resolutions
+      @comma_separated_resolutions
+    elsif self.resolutions.empty?
+      '10, 60, 180, 720, 1440, 10080' # default values
+    else
+      self.resolutions.map { |r| r.value }.join(", ")
     end
-    
-    self.resolutions.map { |r| r.value }.join(", ")
   end
   
   def comma_separated_resolutions=(value)
-    self.save!
-    
-    resolution_values = value.split(/\s?,\s?/)
-    self.resolutions = resolution_values.map { |value| self.resolutions.where('value = ?', value).first or self.resolutions.create(:value => value) }
+    @comma_separated_resolutions = value
   end
 end

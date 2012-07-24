@@ -2,7 +2,20 @@
   <%= f.input :name %>
   <%= f.input :factor, :disabled => false, :hint => 'You cannot change the factor when it\'s set once.' %>
   <%= f.input :unit %>
-  <%= f.input :comma_separated_resolutions, :hint => 'Example: "10, 60, 1440" (values in minutes)', :label => 'Resolutions', :default => '10, 60, 1440' %>
+  <%= f.input :comma_separated_resolutions, :hint => 'Example: "10, 60, 1440" (in minutes)', :label => 'Resolutions', :default => '10, 60, 1440' %>
+  <select id="resolution_chooser">
+    <option value="-1" selected="selected">Add a resolution...</option>
+    <option value="10">10 minutes</option>
+    <option value="60">1 hour</option>
+    <option value="180">3 hours</option>
+    <option value="720">12 hours</option>
+    <option value="1440">1 day</option>
+    <option value="10080">1 week</option>
+    <option value="43800">1 month</option>
+    <option value="131400">3 months</option>
+    <option value="262800">6 months</option>
+    <option value="525600">1 year</option>
+  </select>
   <%= f.input :description %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn btn-primary' %>
@@ -10,3 +23,21 @@
                 projects_path, :class => 'btn' %>
   </div>
 <% end %>
+
+<script language="javascript" type="text/javascript">
+  $(function() {
+    $('#resolution_chooser').change(function() {
+      var selValue = $('#resolution_chooser').val();
+      
+      if (selValue != -1) {
+        var currentResolutions = $('#project_comma_separated_resolutions').val();
+        
+        if (currentResolutions == '') {
+          $('#project_comma_separated_resolutions').val(selValue);
+        } else {
+          $('#project_comma_separated_resolutions').val(currentResolutions + ', ' + selValue);
+        }
+      }
+    });
+  });
+</script>

@@ -3,7 +3,7 @@ class CreateProjects < ActiveRecord::Migration
     create_table :projects do |t|
       t.string :name
       t.references :user
-      t.decimal :factor, :default => 1.0
+      t.decimal :factor, :default => 1.0, :precision => 10, :scale => 6
       t.string :unit
       t.text :description
 

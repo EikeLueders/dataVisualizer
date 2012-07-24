@@ -1,9 +1,9 @@
 
 <% if Resque.info[:failed].to_i > 0 %>
-<div class="alert alert-error">
+<!--<div class="alert alert-error">
   <a class="close" data-dismiss="alert">&#215;</a>
   <%= content_tag :div, "Import jobs failed: #{Resque.info[:failed]}" %>
-</div>
+</div>-->
 <% end %>
 
 <%- model_class = Project -%>

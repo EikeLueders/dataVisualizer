@@ -1,8 +1,10 @@
+# Represents a measured datum of an project.
 class MeasuredDatum < ActiveRecord::Base
+  
   belongs_to :project
   attr_accessible :aggregated_value, :date, :value
-  #validates :date, uniqueness: true
   
+  # Inserts data of an uploaded file with measured data
   def self.insert_data_from_csv(project_id, datafile)
     project = Project.find(project_id.to_i)
     
@@ -15,47 +17,42 @@ class MeasuredDatum < ActiveRecord::Base
         lastrowvalue = 0.0
         idx = 0
         
+        # Read uploaded file
         datafile.each do |line|
           if idx > 0
-          
-            begin
-              items = line.split(';')
-        
-              datetime = DateTime.strptime(items[0] << 'T' << items[1], '%d.%m.%YT%H:%M:%S')
-              
-              value_with_factor = items[2].to_f * factor
-              md = project.measured_data.new(:date => datetime, :value => (idx == 1) ? 0 : value_with_factor - lastrowvalue, :aggregated_value => value_with_factor)
-              md.save!
-              
-              # Save from/to date (AFTER save!, so that the date are not saved, if an exception occures)
-              if idx == 1
-                date_from = datetime
-              elsif idx == datafile.length - 1
-                date_to = datetime
-              end
-    
-              lastrowvalue = value_with_factor
-              
-            rescue ActiveRecord::RecordInvalid => e
-              # falls datum bereits vorhanden (wg. validates :date, uniqueness: true (s.o.))
-              puts "Error: Date already exists in DB - #{e.message}"
+            # Split line by delimiter char 
+            # (format is '%date;%time;%isol_value', e.g. '15.01.2012;19:48:39;2122')
+            items = line.split(';')
+            
+            # Extract date
+            datetime = DateTime.strptime(items[0] << 'T' << items[1], '%d.%m.%YT%H:%M:%S')
+            
+            # Regard the factor of the project
+            value_with_factor = items[2].to_f * factor
+            md = project.measured_data.new(:date => datetime, :value => (idx == 1) ? 0 : value_with_factor - lastrowvalue, :aggregated_value => value_with_factor)
+            md.save!
+            
+            # Save from and to date (AFTER save!, so that the date is not saved, if an exception occures)
+            if idx == 1
+              date_from = datetime
+            elsif idx == datafile.length - 1
+              date_to = datetime
             end
+  
+            lastrowvalue = value_with_factor
           end
           
           idx += 1
         end
         
       rescue => e
-      
-        puts "#{e.class}: #{e.message}\n\n"
         e.backtrace.each { |e| puts e }
-        
       end
     end
 
     puts 'insert_data_from_csv DONE!'
 
-    #calculate resolutions for the project
+    # calculate resolutions, which are defined in the project
     project.resolutions.each do |r|
       MeasuredDatum.enqueue_approximation_job(project_id, date_from, date_to, r.value)
     end
@@ -63,14 +60,8 @@ class MeasuredDatum < ActiveRecord::Base
   
   protected
   
-  def self.enqueue_approximation_job(project_id, date_from, date_to, resolution) 
-    
-    begin
-      Resque.enqueue(CalculateApproximatedData, project_id, date_from, date_to, resolution)
-    rescue ArgumentError => e
-      puts "Error: #{e.message}"
-    end
-    
+  def self.enqueue_approximation_job(project_id, date_from, date_to, resolution)
+    Resque.enqueue(CalculateApproximatedData, project_id, date_from, date_to, resolution)
   end
   
 end

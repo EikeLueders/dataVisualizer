@@ -1,4 +1,6 @@
+# Represents the project of an user.
 class Project < ActiveRecord::Base
+  
   belongs_to :user
   
   has_many :measured_data, dependent: :destroy
@@ -25,7 +27,7 @@ class Project < ActiveRecord::Base
     self.resolutions = resolution_values.map { |value| self.resolutions.where('value = ?', value).first or self.resolutions.create(:value => value) }
   end
   
-  # getter / setter for resolution value
+  # getter for resolution values
   def comma_separated_resolutions
     if @comma_separated_resolutions
       @comma_separated_resolutions
@@ -36,6 +38,7 @@ class Project < ActiveRecord::Base
     end
   end
   
+  # setter for resolution values
   def comma_separated_resolutions=(value)
     @comma_separated_resolutions = value
   end

@@ -99,34 +99,42 @@ class ProjectsController < ApplicationController
 
     file = nil
 
+    # get file object
     begin
       file = params[:datafile].tempfile
     rescue
+      # if no file was specified show error and get back to upload form
       respond_to do |format|
         format.html { redirect_to project_newfileupload_path(@project), alert: 'You have to choose a file to upload a file.' }
         format.json { head :no_content }
       end
       return
     end
-    
+  
     # add resque job
     Resque.enqueue(InsertDataFromCSV, @project.id, file)
     
     respond_to do |format|
-      format.html {redirect_to @project, notice: 'File upload success. Please wait a few seconds, while all data is processed...'}
+      format.html {redirect_to @project, notice: "File upload success. Please wait a few seconds, while all data is processed..."}
     end
   end
 
+  # Load data with ajax request
 	def ajax_data_load
 		@project = Project.find(params[:project_id])
 		
 		@data = []
 		@data_aggregated = []
 		
+		# if any data is avaiable
 		if not @project.measured_data.empty?
+		  
+		  # if timespan is given use it to extract data
   		if params.has_key?(:from) and params.has_key?(:to)
   		  from_timestamp, to_timestamp = params[:from], params[:to]
   		  from_time, to_time = Time.at(from_timestamp.to_f/1000), Time.at(to_timestamp.to_f/1000)
+  		  
+  		# otherwise get all avaiable data
       else 
         from_time = @project.measured_data.minimum(:date)
         to_time = @project.measured_data.maximum(:date)
@@ -140,6 +148,7 @@ class ProjectsController < ApplicationController
   		# Aufloesung aus gegebenen Aufloesungen waehlen
   		best_resolution = get_best_resolution(calc_resolution, @project.resolutions.map { |r| r.value })
 		
+		  # time hartcodieren... funktioniert mit sql funktion nicht???
   		db_from = from_time.strftime("%Y-%m-%d %H:%M:%S")
       db_to = to_time.strftime("%Y-%m-%d %H:%M:%S")
     		

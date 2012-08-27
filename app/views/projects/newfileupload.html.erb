@@ -4,7 +4,7 @@
 </div>
 
 <%= form_tag({:action => :fileupload}, :multipart => true) do %>
-  <%= file_field_tag 'datafile' %>
+Upload Datei: <%= file_field_tag 'datafile' %><br /><br />
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

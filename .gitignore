@@ -25,12 +25,7 @@ log/*
 
 db/development.sqlite3
 
-Gemfile
-
 *.lock
 
-Gemfile.lock
-
 config/database.yml
-
 config/redis/redis.conf

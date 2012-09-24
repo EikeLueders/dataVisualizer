@@ -4,11 +4,44 @@
 </div>
 
 <%= form_tag({:action => :fileupload}, :multipart => true) do %>
-Upload Datei: <%= file_field_tag 'datafile' %><br /><br />
-
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              project_path(@project), :class => 'btn'  %>
-  <%= submit_tag 'Upload', :class => 'btn btn-primary' %>
-</div>
+	Upload file: <%= file_field_tag 'datafile' %>
+	<br /><br />
+	
+	<h3>File upload options</h3>
+	<div style="float:left">
+		Parse pattern for each line:<br />
+		<%= text_field_tag 'line_parse_pattern', @project.line_parse_pattern, :style => "width:100%" %><br/>
+		
+		<h5>Possible values</h5>
+		<ul style="list-style:none;margin-left:0">
+			<li><tt>d(<a href="http://www.ruby-doc.org/stdlib-1.9.3/libdoc/date/rdoc/DateTime.html#method-i-strftime" target="_blank"><i>datetime-format</i></a>)</tt> - datetime element</li> 
+			<li><tt>a</tt> - aggregated value</li>
+			<li><tt>i</tt> - isolated value</li>
+		</ul>
+		
+		<h5>Conditions</h5>
+		<ul style="list-style:disc">
+			<li>one or more <tt>d</tt>-values are required</li>
+			<li>least one of the <tt>a</tt>- or <tt>i</tt>-value</li>
+		</ul>
+		
+		<h5>Examples</h5>
+		<ul style="list-style:circle">
+			<li>d(%Y %m);d(%d);i;d(%T)</li>
+			<li>a;i;d(%F)</li>
+		</ul>
+	</div>
+	<div style="float:left;margin-left:30px">
+		Line element delimiter:<br />
+		<%= text_field_tag 'line_element_delimiter', @project.line_element_delimiter, :size => 1, :max_length => 1, :style => "width:30px" %>
+		<br />
+		Ignore first line of file?<br />
+		<%= check_box_tag 'ignore_first_line', true, @project.ignore_first_line %>
+	</div>
+	
+	<div class="form-actions" style="clear:both;">
+	  <%= link_to t('.back', :default => t("helpers.links.back")),
+	              project_path(@project), :class => 'btn'  %>
+	  <%= submit_tag 'Upload', :class => 'btn btn-primary' %>
+	</div>
 <% end %>

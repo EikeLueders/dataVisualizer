@@ -42,7 +42,7 @@
 function onSetExtremes(e) { 
 	currentExtremes = e.target.getExtremes();
 	if (e.min !== currentExtremes.min || e.max !== currentExtremes.max) {
-    loadData(e.min, e.max);
+		loadData(e.min, e.max);
 	}
 }
 
@@ -63,6 +63,7 @@ function loadData(from_timestamp, to_timestamp) {
       xData = window.chart.series[0].xData;
       xDataAggregated = window.chart.series[1].xData;
       
+      // Vorhandene Daten und neu geladene Daten zusammenfuehren
       if (xData.length != 0 && xDataAggregated.length != 0) {
         firstIndex = -1;
         lastIndex = -1;
@@ -70,10 +71,10 @@ function loadData(from_timestamp, to_timestamp) {
         for (var i = 0; i < xData.length; i++) {
           if (xData[i] >= data[0][0][0] && firstIndex == -1) {
             firstIndex = i;
-          };
+          }
           if (xData[i] >= data[0][data[0].length-1][0] && lastIndex == -1) {
             lastIndex = i;
-          };
+          }
         }
 
         chartData = window.chart.series[0].options.data;
@@ -85,10 +86,10 @@ function loadData(from_timestamp, to_timestamp) {
         for (var i = 0; i < xDataAggregated.length; i++) {
           if (xDataAggregated[i] >= data[1][0][0] && firstIndex == -1) {
             firstIndex = i;
-          };
+          }
           if (xDataAggregated[i] >= data[1][data[1].length-1][0] && lastIndex == -1) {
             lastIndex = i;
-          };
+          }
         }
         
         chartDataAggregated = window.chart.series[1].options.data;

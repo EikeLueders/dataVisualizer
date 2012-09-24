@@ -1,0 +1,922 @@
+# Logfile created on 2012-09-24 10:48:59 +0200 by logger.rb/31641
+
+
+Started GET "/projects/2/newfileupload" for 127.0.0.1 at 2012-09-24 10:49:03 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"2"}
+  Rendered projects/newfileupload.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 360ms (Views: 126.1ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/projects/2/fileupload" for 127.0.0.1 at 2012-09-24 10:49:09 +0200
+Processing by ProjectsController#fileupload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "datafile"=>#<ActionDispatch::Http::UploadedFile:0x00000004581f70 @original_filename="ESADL012.CSV", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"datafile\"; filename=\"ESADL012.CSV\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:/tmp/RackMultipart20120924-5759-5ztwtf>>, "line_parse_pattern"=>"d(%d.%m.%Y);d(%H:%M:%S);a", "line_element_delimiter"=>";", "ignore_first_line"=>"true", "commit"=>"Upload", "project_id"=>"2"}
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 128ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2012-09-24 10:49:09 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendered projects/show.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 38ms (Views: 32.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/2/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 10:49:10 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"2"}
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2012-09-24 10:50:56 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendered projects/show.html.erb within layouts/application (63.3ms)
+Completed 200 OK in 360ms (Views: 145.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/projects/2/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 10:50:58 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"2"}
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/2/newfileupload" for 127.0.0.1 at 2012-09-24 10:50:59 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"2"}
+  Rendered projects/newfileupload.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/projects/2/fileupload" for 127.0.0.1 at 2012-09-24 10:51:08 +0200
+Processing by ProjectsController#fileupload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "datafile"=>#<ActionDispatch::Http::UploadedFile:0x000000053f2e60 @original_filename="ESADL012.CSV", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"datafile\"; filename=\"ESADL012.CSV\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:/tmp/RackMultipart20120924-5830-1sdi5j1>>, "line_parse_pattern"=>"d(%d.%m.%Y);d(%H:%M:%S);a", "line_element_delimiter"=>";", "ignore_first_line"=>"true", "commit"=>"Upload", "project_id"=>"2"}
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 9035ms (ActiveRecord: 2360.8ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2012-09-24 10:51:18 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendered projects/show.html.erb within layouts/application (165.1ms)
+Completed 200 OK in 182ms (Views: 178.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/2/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 10:51:18 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"2"}
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2012-09-24 10:56:14 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendered projects/show.html.erb within layouts/application (66.1ms)
+Completed 200 OK in 369ms (Views: 152.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/projects/2/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 10:56:15 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"2"}
+Completed 200 OK in 36ms (Views: 0.2ms | ActiveRecord: 13.6ms)
+
+
+Started DELETE "/projects/2" for 127.0.0.1 at 2012-09-24 10:56:20 +0200
+Processing by ProjectsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "id"=>"2"}
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 41694ms (ActiveRecord: 745.7ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-09-24 10:57:02 +0200
+Processing by ProjectsController#index as HTML
+  Rendered projects/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-09-24 10:57:02 +0200
+Processing by ProjectsController#index as HTML
+  Rendered projects/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-09-24 10:57:02 +0200
+Processing by ProjectsController#index as HTML
+  Rendered projects/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-09-24 10:57:02 +0200
+Processing by ProjectsController#index as HTML
+  Rendered projects/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 90ms (Views: 87.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-09-24 10:57:13 +0200
+Processing by ProjectsController#index as HTML
+  Rendered projects/index.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 542ms (Views: 217.7ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2012-09-24 10:57:16 +0200
+Processing by ProjectsController#new as HTML
+  Rendered projects/_form_new.html.erb (271.6ms)
+  Rendered projects/new.html.erb within layouts/application (276.1ms)
+Completed 200 OK in 349ms (Views: 288.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2012-09-24 10:57:34 +0200
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "project"=>{"name"=>"Stromzähler", "factor"=>"1.0", "unit"=>"kWh", "comma_separated_resolutions"=>"10, 60, 180, 720, 1440, 10080", "description"=>""}, "commit"=>"Create Project"}
+Redirected to http://localhost:3000/projects/3
+Completed 302 Found in 326ms (ActiveRecord: 298.7ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2012-09-24 10:57:35 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered projects/show.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 76ms (Views: 67.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/projects/3/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 10:57:35 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"3"}
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/projects/3/newfileupload" for 127.0.0.1 at 2012-09-24 10:57:39 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"3"}
+  Rendered projects/newfileupload.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/3/images/favicon.ico" for 127.0.0.1 at 2012-09-24 10:57:40 +0200
+
+ActionController::RoutingError (No route matches [GET] "/projects/3/images/favicon.ico"):
+  config/initializers/quiet_assets.rb:7:in `call_with_quiet_assets'
+
+
+  Rendered /home/julian/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (46.1ms)
+
+
+Started GET "/projects/3/images/favicon.ico" for 127.0.0.1 at 2012-09-24 10:57:40 +0200
+
+ActionController::RoutingError (No route matches [GET] "/projects/3/images/favicon.ico"):
+  config/initializers/quiet_assets.rb:7:in `call_with_quiet_assets'
+
+
+  Rendered /home/julian/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started POST "/projects/3/fileupload" for 127.0.0.1 at 2012-09-24 10:58:12 +0200
+Processing by ProjectsController#fileupload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "datafile"=>#<ActionDispatch::Http::UploadedFile:0x00000001437870 @original_filename="ESADL012.CSV", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"datafile\"; filename=\"ESADL012.CSV\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:/tmp/RackMultipart20120924-6057-177y0tj>>, "line_parse_pattern"=>"d(%d.%m.%Y);d(%H:%M:%S);a", "line_element_delimiter"=>";", "ignore_first_line"=>"true", "commit"=>"Upload", "project_id"=>"3"}
+Redirected to http://localhost:3000/projects/3
+Completed 302 Found in 8938ms (ActiveRecord: 2985.8ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2012-09-24 10:58:21 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered projects/show.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 29ms (Views: 25.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/3/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 10:58:21 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"3"}
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2012-09-24 10:59:56 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered projects/show.html.erb within layouts/application (69.1ms)
+Completed 200 OK in 131ms (Views: 83.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/projects/3/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 10:59:57 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"3"}
+Completed 200 OK in 268ms (Views: 35.4ms | ActiveRecord: 25.0ms)
+
+
+Started GET "/projects/3/newfileupload" for 127.0.0.1 at 2012-09-24 11:03:38 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"3"}
+  Rendered projects/newfileupload.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 24ms (Views: 20.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2012-09-24 11:03:49 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered projects/show.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 33ms (Views: 28.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/3/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:03:50 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"3"}
+Completed 200 OK in 258ms (Views: 35.3ms | ActiveRecord: 22.8ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-09-24 11:05:16 +0200
+Processing by ProjectsController#index as HTML
+  Rendered projects/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2012-09-24 11:05:17 +0200
+Processing by ProjectsController#new as HTML
+  Rendered projects/_form_new.html.erb (9.5ms)
+  Rendered projects/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 29ms (Views: 25.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2012-09-24 11:05:24 +0200
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "project"=>{"name"=>"t", "factor"=>"1.0", "unit"=>"dsg", "comma_separated_resolutions"=>"10, 60, 180, 720, 1440, 10080", "description"=>""}, "commit"=>"Create Project"}
+  Rendered projects/_form_new.html.erb (12.1ms)
+  Rendered projects/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 86ms (Views: 78.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2012-09-24 11:05:29 +0200
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "project"=>{"name"=>"test", "factor"=>"1.0", "unit"=>"dsg", "comma_separated_resolutions"=>"10, 60, 180, 720, 1440, 10080", "description"=>""}, "commit"=>"Create Project"}
+Redirected to http://localhost:3000/projects/4
+Completed 302 Found in 318ms (ActiveRecord: 292.5ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2012-09-24 11:05:29 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  Rendered projects/show.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 32ms (Views: 27.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects/4/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:05:30 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"4"}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/4/newfileupload" for 127.0.0.1 at 2012-09-24 11:05:32 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"4"}
+  Rendered projects/newfileupload.html.erb within layouts/application (62.7ms)
+Completed 200 OK in 79ms (Views: 76.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/4/images/favicon.ico" for 127.0.0.1 at 2012-09-24 11:05:32 +0200
+
+ActionController::RoutingError (No route matches [GET] "/projects/4/images/favicon.ico"):
+  config/initializers/quiet_assets.rb:7:in `call_with_quiet_assets'
+
+
+  Rendered /home/julian/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/projects/4/images/favicon.ico" for 127.0.0.1 at 2012-09-24 11:05:32 +0200
+
+ActionController::RoutingError (No route matches [GET] "/projects/4/images/favicon.ico"):
+  config/initializers/quiet_assets.rb:7:in `call_with_quiet_assets'
+
+
+  Rendered /home/julian/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started POST "/projects/4/fileupload" for 127.0.0.1 at 2012-09-24 11:05:43 +0200
+Processing by ProjectsController#fileupload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "datafile"=>#<ActionDispatch::Http::UploadedFile:0x00000004753448 @original_filename="EsADL (Kopie).CSV", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"datafile\"; filename=\"EsADL (Kopie).CSV\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:/tmp/RackMultipart20120924-6057-kx8kyu>>, "line_parse_pattern"=>"i;d(%d.%m.%Y);d(%H:%M:%S)", "line_element_delimiter"=>";", "ignore_first_line"=>"true", "commit"=>"Upload", "project_id"=>"4"}
+Redirected to http://localhost:3000/projects/4
+Completed 302 Found in 842ms (ActiveRecord: 801.3ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2012-09-24 11:05:44 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  Rendered projects/show.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 83ms (Views: 78.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/4/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:05:45 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"4"}
+Completed 200 OK in 12ms (Views: 0.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/projects/4/newfileupload" for 127.0.0.1 at 2012-09-24 11:06:46 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"4"}
+  Rendered projects/newfileupload.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 21ms (Views: 16.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/4/newfileupload" for 127.0.0.1 at 2012-09-24 11:08:06 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"4"}
+  Rendered projects/newfileupload.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 72ms (Views: 69.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/4/newfileupload" for 127.0.0.1 at 2012-09-24 11:10:26 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"4"}
+  Rendered projects/newfileupload.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/4/newfileupload" for 127.0.0.1 at 2012-09-24 11:11:13 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"4"}
+  Rendered projects/newfileupload.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 79ms (Views: 75.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/4/newfileupload" for 127.0.0.1 at 2012-09-24 11:11:28 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"4"}
+  Rendered projects/newfileupload.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 20ms (Views: 16.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/4/newfileupload" for 127.0.0.1 at 2012-09-24 11:12:00 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"4"}
+  Rendered projects/newfileupload.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 75ms (Views: 71.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/4/newfileupload" for 127.0.0.1 at 2012-09-24 11:12:12 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"4"}
+  Rendered projects/newfileupload.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 22ms (Views: 18.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/4/newfileupload" for 127.0.0.1 at 2012-09-24 11:12:45 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"4"}
+  Rendered projects/newfileupload.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 77ms (Views: 73.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-09-24 11:14:47 +0200
+Processing by ProjectsController#index as HTML
+  Rendered projects/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 24ms (Views: 21.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2012-09-24 11:14:49 +0200
+Processing by ProjectsController#new as HTML
+  Rendered projects/_form_new.html.erb (8.8ms)
+  Rendered projects/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 82ms (Views: 79.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2012-09-24 11:14:54 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  Rendered projects/show.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 33ms (Views: 26.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/4/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:14:55 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"4"}
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/projects/4/newfileupload" for 127.0.0.1 at 2012-09-24 11:14:57 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"4"}
+  Rendered projects/newfileupload.html.erb within layouts/application (57.2ms)
+Completed 200 OK in 73ms (Views: 71.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/projects/4/fileupload" for 127.0.0.1 at 2012-09-24 11:15:20 +0200
+Processing by ProjectsController#fileupload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "datafile"=>#<ActionDispatch::Http::UploadedFile:0x000000042fa400 @original_filename="EsADL (Kopie).CSV", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"datafile\"; filename=\"EsADL (Kopie).CSV\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:/tmp/RackMultipart20120924-6057-q4y7wm>>, "line_parse_pattern"=>"i;d(%d.%m.%Y);d(%T)", "line_element_delimiter"=>";", "ignore_first_line"=>"true", "commit"=>"Upload", "project_id"=>"4"}
+Redirected to http://localhost:3000/projects/4
+Completed 302 Found in 695ms (ActiveRecord: 670.0ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2012-09-24 11:15:21 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  Rendered projects/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 83ms (Views: 78.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects/4/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:15:21 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"4"}
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2012-09-24 11:15:33 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  Rendered projects/show.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 26ms (Views: 22.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects/4/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:15:33 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"4"}
+Completed 200 OK in 10ms (Views: 0.8ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/projects/4" for 127.0.0.1 at 2012-09-24 11:15:46 +0200
+Processing by ProjectsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "id"=>"4"}
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 855ms (ActiveRecord: 783.5ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-09-24 11:15:47 +0200
+Processing by ProjectsController#index as HTML
+  Rendered projects/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 28ms (Views: 25.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2012-09-24 11:15:51 +0200
+Processing by ProjectsController#new as HTML
+  Rendered projects/_form_new.html.erb (14.4ms)
+  Rendered projects/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 33ms (Views: 29.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2012-09-24 11:15:59 +0200
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "project"=>{"name"=>"Test", "factor"=>"1.0", "unit"=>"kWh", "comma_separated_resolutions"=>"10, 60, 180, 720, 1440, 10080", "description"=>""}, "commit"=>"Create Project"}
+Redirected to http://localhost:3000/projects/5
+Completed 302 Found in 295ms (ActiveRecord: 264.4ms)
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2012-09-24 11:16:00 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendered projects/show.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 30ms (Views: 25.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects/5/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:16:00 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"5"}
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects/5/newfileupload" for 127.0.0.1 at 2012-09-24 11:17:13 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"5"}
+  Rendered projects/newfileupload.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 73ms (Views: 69.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/5/images/favicon.ico" for 127.0.0.1 at 2012-09-24 11:17:14 +0200
+
+ActionController::RoutingError (No route matches [GET] "/projects/5/images/favicon.ico"):
+  config/initializers/quiet_assets.rb:7:in `call_with_quiet_assets'
+
+
+  Rendered /home/julian/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/projects/5/images/favicon.ico" for 127.0.0.1 at 2012-09-24 11:17:14 +0200
+
+ActionController::RoutingError (No route matches [GET] "/projects/5/images/favicon.ico"):
+  config/initializers/quiet_assets.rb:7:in `call_with_quiet_assets'
+
+
+  Rendered /home/julian/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started POST "/projects/5/fileupload" for 127.0.0.1 at 2012-09-24 11:17:29 +0200
+Processing by ProjectsController#fileupload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "datafile"=>#<ActionDispatch::Http::UploadedFile:0x00000004311650 @original_filename="EsADL (Kopie).CSV", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"datafile\"; filename=\"EsADL (Kopie).CSV\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:/tmp/RackMultipart20120924-6057-jahv98>>, "line_parse_pattern"=>"i;d(%d.%m.%Y);d(%T)", "line_element_delimiter"=>";", "ignore_first_line"=>"true", "commit"=>"Upload", "project_id"=>"5"}
+Redirected to http://localhost:3000/projects/5
+Completed 302 Found in 513ms (ActiveRecord: 477.7ms)
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2012-09-24 11:17:30 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendered projects/show.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 28ms (Views: 24.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects/5/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:17:30 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"5"}
+Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2012-09-24 11:20:06 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendered projects/show.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 133ms (Views: 37.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/projects/5/ajax_data_load.json?plotwidth=470" for 127.0.0.1 at 2012-09-24 11:20:07 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"470", "project_id"=>"5"}
+Completed 200 OK in 80ms (Views: 0.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/projects/5/newfileupload" for 127.0.0.1 at 2012-09-24 11:22:55 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"5"}
+  Rendered projects/newfileupload.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 23ms (Views: 20.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/projects/5/fileupload" for 127.0.0.1 at 2012-09-24 11:23:04 +0200
+Processing by ProjectsController#fileupload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "datafile"=>#<ActionDispatch::Http::UploadedFile:0x0000000486e5d0 @original_filename="EsADL (Kopie).CSV", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"datafile\"; filename=\"EsADL (Kopie).CSV\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:/tmp/RackMultipart20120924-6057-nrj8bf>>, "line_parse_pattern"=>"i;d(%d.%m.%Y);d(%T)", "line_element_delimiter"=>";", "ignore_first_line"=>"true", "commit"=>"Upload", "project_id"=>"5"}
+Redirected to http://localhost:3000/projects/5
+Completed 302 Found in 13ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2012-09-24 11:23:04 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendered projects/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 86ms (Views: 80.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/5/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:23:05 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"5"}
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2012-09-24 11:23:30 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendered projects/show.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 31ms (Views: 26.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects/5/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:23:30 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"5"}
+Completed 200 OK in 62ms (Views: 1.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2012-09-24 11:23:34 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendered projects/show.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 31ms (Views: 26.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/5/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:23:35 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"5"}
+Completed 200 OK in 10ms (Views: 1.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/projects/5/newfileupload" for 127.0.0.1 at 2012-09-24 11:24:10 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"5"}
+  Rendered projects/newfileupload.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 68ms (Views: 14.9ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/projects/5/fileupload" for 127.0.0.1 at 2012-09-24 11:24:16 +0200
+Processing by ProjectsController#fileupload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "datafile"=>#<ActionDispatch::Http::UploadedFile:0x00000003a6fce0 @original_filename="EsADL (Kopie).CSV", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"datafile\"; filename=\"EsADL (Kopie).CSV\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:/tmp/RackMultipart20120924-6057-jfh7og>>, "line_parse_pattern"=>"i;d(%d.%m.%Y);d(%T)", "line_element_delimiter"=>";", "ignore_first_line"=>"true", "commit"=>"Upload", "project_id"=>"5"}
+Redirected to http://localhost:3000/projects/5
+Completed 302 Found in 355ms (ActiveRecord: 285.6ms)
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2012-09-24 11:24:16 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendered projects/show.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 85ms (Views: 80.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/5/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:24:17 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"5"}
+Completed 200 OK in 17ms (Views: 1.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/projects/5/ajax_data_load.json?plotwidth=1102&from=1326742724517.2415&to=1326745633395.6443" for 127.0.0.1 at 2012-09-24 11:24:32 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1326742724517.2415", "to"=>"1326745633395.6443", "project_id"=>"5"}
+Completed 200 OK in 49ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2012-09-24 11:24:36 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendered projects/show.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 29ms (Views: 23.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/projects/5/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:24:36 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"5"}
+Completed 200 OK in 15ms (Views: 1.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/projects/5/ajax_data_load.json?plotwidth=1102&from=1326739330825.7712&to=1326745552593.4663" for 127.0.0.1 at 2012-09-24 11:24:39 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1326739330825.7712", "to"=>"1326745552593.4663", "project_id"=>"5"}
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/projects/5/ajax_data_load.json?plotwidth=1102&from=1326656751000&to=1326745548669.46" for 127.0.0.1 at 2012-09-24 11:24:47 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1326656751000", "to"=>"1326745548669.46", "project_id"=>"5"}
+Completed 200 OK in 9ms (Views: 0.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-09-24 11:25:17 +0200
+Processing by ProjectsController#index as HTML
+  Rendered projects/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2012-09-24 11:25:18 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered projects/show.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 77ms (Views: 71.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/3/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:25:19 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"3"}
+Completed 200 OK in 263ms (Views: 93.1ms | ActiveRecord: 24.6ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2012-09-24 11:27:04 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered projects/show.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 30ms (Views: 24.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/3/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:27:05 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"3"}
+Completed 200 OK in 258ms (Views: 30.4ms | ActiveRecord: 24.0ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2012-09-24 11:34:04 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered projects/show.html.erb within layouts/application (76.8ms)
+Completed 200 OK in 98ms (Views: 91.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects/3/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:34:05 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"3"}
+Completed 200 OK in 248ms (Views: 91.7ms | ActiveRecord: 24.0ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2012-09-24 11:34:08 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered projects/show.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 31ms (Views: 26.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/3/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:34:08 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"3"}
+Completed 200 OK in 246ms (Views: 31.2ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/projects/3/ajax_data_load.json?plotwidth=1102&from=1326861034043.5571&to=1327274887830.3086" for 127.0.0.1 at 2012-09-24 11:34:24 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1326861034043.5571", "to"=>"1327274887830.3086", "project_id"=>"3"}
+Completed 200 OK in 149ms (Views: 15.7ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/projects/3/ajax_data_load.json?plotwidth=1102&from=1327021392997.2258&to=1327148328187.7175" for 127.0.0.1 at 2012-09-24 11:34:27 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1327021392997.2258", "to"=>"1327148328187.7175", "project_id"=>"3"}
+Completed 200 OK in 98ms (Views: 18.7ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/projects/3/ajax_data_load.json?plotwidth=1102&from=1326847729685.2886&to=1327147250635.0093" for 127.0.0.1 at 2012-09-24 11:34:37 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1326847729685.2886", "to"=>"1327147250635.0093", "project_id"=>"3"}
+Completed 200 OK in 135ms (Views: 82.7ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-09-24 11:34:47 +0200
+Processing by ProjectsController#index as HTML
+  Rendered projects/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 24ms (Views: 21.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2012-09-24 11:34:54 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered projects/show.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 30ms (Views: 26.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/3/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:34:54 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"3"}
+Completed 200 OK in 242ms (Views: 90.1ms | ActiveRecord: 25.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-09-24 11:45:58 +0200
+Processing by ProjectsController#index as HTML
+  Rendered projects/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2012-09-24 11:46:00 +0200
+Processing by ProjectsController#new as HTML
+  Rendered projects/_form_new.html.erb (9.1ms)
+  Rendered projects/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 27ms (Views: 23.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2012-09-24 11:46:09 +0200
+Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "project"=>{"name"=>"gdsg", "factor"=>"1.0", "unit"=>"kWh", "comma_separated_resolutions"=>"10, 60, 180, 720, 1440, 10080", "description"=>""}, "commit"=>"Create Project"}
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 311ms (ActiveRecord: 285.0ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2012-09-24 11:46:09 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered projects/show.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 30ms (Views: 25.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:46:10 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"6"}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/6/newfileupload" for 127.0.0.1 at 2012-09-24 11:46:13 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"6"}
+  Rendered projects/newfileupload.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 79ms (Views: 76.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/6/images/favicon.ico" for 127.0.0.1 at 2012-09-24 11:46:14 +0200
+
+ActionController::RoutingError (No route matches [GET] "/projects/6/images/favicon.ico"):
+  config/initializers/quiet_assets.rb:7:in `call_with_quiet_assets'
+
+
+  Rendered /home/julian/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/projects/6/images/favicon.ico" for 127.0.0.1 at 2012-09-24 11:46:14 +0200
+
+ActionController::RoutingError (No route matches [GET] "/projects/6/images/favicon.ico"):
+  config/initializers/quiet_assets.rb:7:in `call_with_quiet_assets'
+
+
+  Rendered /home/julian/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started POST "/projects/6/fileupload" for 127.0.0.1 at 2012-09-24 11:46:20 +0200
+Processing by ProjectsController#fileupload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ol/vxtPnUoxnD4fUid9TyTjWMSNiwANCGOw82Wk8+0=", "datafile"=>#<ActionDispatch::Http::UploadedFile:0x00000004743638 @original_filename="ESADL013.CSV", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"datafile\"; filename=\"ESADL013.CSV\"\r\nContent-Type: text/csv\r\n", @tempfile=#<File:/tmp/RackMultipart20120924-6057-1or49u>>, "line_parse_pattern"=>"d(%d.%m.%Y);d(%H:%M:%S);a", "line_element_delimiter"=>";", "ignore_first_line"=>"true", "commit"=>"Upload", "project_id"=>"6"}
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 22215ms (ActiveRecord: 7550.4ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2012-09-24 11:46:42 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered projects/show.html.erb within layouts/application (343.1ms)
+Completed 200 OK in 360ms (Views: 356.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:46:43 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"6"}
+Completed 200 OK in 36ms (Views: 0.2ms | ActiveRecord: 28.0ms)
+EXPLAIN for: SELECT "measured_data".* FROM "measured_data"  WHERE "measured_data"."project_id" = 6 AND (date BETWEEN '2012-01-26 15:35:27' AND '2012-02-19 08:16:36') ORDER BY date ASC
+0|0|0|SEARCH TABLE measured_data USING INDEX index_measured_data_on_project_id (project_id=?) (~5 rows)
+0|0|0|USE TEMP B-TREE FOR ORDER BY
+
+EXPLAIN for: SELECT "measured_data".* FROM "measured_data"  WHERE "measured_data"."project_id" = 6 AND (date BETWEEN '2012-01-26 15:35:27' AND '2012-02-19 08:16:36') ORDER BY date ASC
+0|0|0|SEARCH TABLE measured_data USING INDEX index_measured_data_on_project_id (project_id=?) (~5 rows)
+0|0|0|USE TEMP B-TREE FOR ORDER BY
+
+EXPLAIN for: SELECT "measured_data".* FROM "measured_data"  WHERE "measured_data"."project_id" = 6 AND (date BETWEEN '2012-01-26 15:35:27' AND '2012-02-19 08:16:36') ORDER BY date ASC
+0|0|0|SEARCH TABLE measured_data USING INDEX index_measured_data_on_project_id (project_id=?) (~5 rows)
+0|0|0|USE TEMP B-TREE FOR ORDER BY
+
+EXPLAIN for: SELECT "measured_data".* FROM "measured_data"  WHERE "measured_data"."project_id" = 6 AND (date BETWEEN '2012-01-26 15:35:27' AND '2012-02-19 08:16:36') ORDER BY date ASC
+0|0|0|SEARCH TABLE measured_data USING INDEX index_measured_data_on_project_id (project_id=?) (~5 rows)
+0|0|0|USE TEMP B-TREE FOR ORDER BY
+
+EXPLAIN for: SELECT "measured_data".* FROM "measured_data"  WHERE "measured_data"."project_id" = 6 AND (date BETWEEN '2012-01-26 15:35:27' AND '2012-02-19 08:16:36') ORDER BY date ASC
+0|0|0|SEARCH TABLE measured_data USING INDEX index_measured_data_on_project_id (project_id=?) (~5 rows)
+0|0|0|USE TEMP B-TREE FOR ORDER BY
+
+EXPLAIN for: SELECT "measured_data".* FROM "measured_data"  WHERE "measured_data"."project_id" = 6 AND (date BETWEEN '2012-01-26 15:35:27' AND '2012-02-19 08:16:36') ORDER BY date ASC
+0|0|0|SEARCH TABLE measured_data USING INDEX index_measured_data_on_project_id (project_id=?) (~5 rows)
+0|0|0|USE TEMP B-TREE FOR ORDER BY
+
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2012-09-24 11:47:49 +0200
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered projects/show.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 86ms (Views: 81.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102" for 127.0.0.1 at 2012-09-24 11:47:49 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "project_id"=>"6"}
+Completed 200 OK in 122ms (Views: 12.6ms | ActiveRecord: 45.5ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102&from=1329635169000&to=1329638769000" for 127.0.0.1 at 2012-09-24 11:55:31 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1329635169000", "to"=>"1329638769000", "project_id"=>"6"}
+Completed 200 OK in 88ms (Views: 0.3ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102&from=1329635796000&to=1329639396000" for 127.0.0.1 at 2012-09-24 11:55:32 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1329635796000", "to"=>"1329639396000", "project_id"=>"6"}
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 18.9ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102&from=1329122998687.151&to=1329126809737.4302" for 127.0.0.1 at 2012-09-24 11:55:39 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1329122998687.151", "to"=>"1329126809737.4302", "project_id"=>"6"}
+Completed 200 OK in 23ms (Views: 0.7ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102&from=1329040409737.4302&to=1329126809737.4302" for 127.0.0.1 at 2012-09-24 11:55:48 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1329040409737.4302", "to"=>"1329126809737.4302", "project_id"=>"6"}
+Completed 200 OK in 132ms (Views: 12.5ms | ActiveRecord: 21.3ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102&from=1329058079085.6611&to=1329145725361.2664" for 127.0.0.1 at 2012-09-24 11:55:55 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1329058079085.6611", "to"=>"1329145725361.2664", "project_id"=>"6"}
+Completed 200 OK in 80ms (Views: 12.3ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102&from=1329038930849.162&to=1329126571385.4749" for 127.0.0.1 at 2012-09-24 11:55:58 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1329038930849.162", "to"=>"1329126571385.4749", "project_id"=>"6"}
+Completed 200 OK in 80ms (Views: 13.9ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102&from=1329019775344.5066&to=1329107409541.8994" for 127.0.0.1 at 2012-09-24 11:56:00 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1329019775344.5066", "to"=>"1329107409541.8994", "project_id"=>"6"}
+Completed 200 OK in 145ms (Views: 12.6ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102&from=1328999107439.4785&to=1329086640985.1025" for 127.0.0.1 at 2012-09-24 11:56:03 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1328999107439.4785", "to"=>"1329086640985.1025", "project_id"=>"6"}
+Completed 200 OK in 94ms (Views: 13.8ms | ActiveRecord: 22.7ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102&from=1328911170571.6946&to=1328998551255.121" for 127.0.0.1 at 2012-09-24 12:06:26 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1328911170571.6946", "to"=>"1328998551255.121", "project_id"=>"6"}
+Completed 200 OK in 195ms (Views: 63.7ms | ActiveRecord: 21.6ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102&from=1328929699541.8994&to=1329016925821.229" for 127.0.0.1 at 2012-09-24 12:06:34 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1328929699541.8994", "to"=>"1329016925821.229", "project_id"=>"6"}
+Completed 200 OK in 80ms (Views: 12.8ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102&from=1328900415329.609&to=1329013787005.5867" for 127.0.0.1 at 2012-09-24 12:06:45 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1328900415329.609", "to"=>"1329013787005.5867", "project_id"=>"6"}
+Completed 200 OK in 92ms (Views: 14.9ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/projects/6/ajax_data_load.json?plotwidth=1102&from=1328339775519.553&to=1329011243229.0503" for 127.0.0.1 at 2012-09-24 12:09:50 +0200
+Processing by ProjectsController#ajax_data_load as JSON
+  Parameters: {"plotwidth"=>"1102", "from"=>"1328339775519.553", "to"=>"1329011243229.0503", "project_id"=>"6"}
+Completed 200 OK in 224ms (Views: 23.7ms | ActiveRecord: 81.4ms)

@@ -12,7 +12,7 @@ gem 'resque'
 gem 'simple_form'
 gem 'foreman'
 gem 'thin'
-
+gem 'activerecord-mysql2-adapter'
 
 # Gems used only for assets and not required
 # in production environments by default.

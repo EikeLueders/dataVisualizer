@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120720152613) do
+ActiveRecord::Schema.define(:version => 20120924072928) do
 
   create_table "approximated_measured_data", :force => true do |t|
     t.integer  "project_id"
@@ -39,11 +39,14 @@ ActiveRecord::Schema.define(:version => 20120720152613) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.decimal  "factor",      :precision => 10, :scale => 6, :default => 1.0
+    t.decimal  "factor",                 :precision => 10, :scale => 6, :default => 1.0
     t.string   "unit"
     t.text     "description"
-    t.datetime "created_at",                                                  :null => false
-    t.datetime "updated_at",                                                  :null => false
+    t.datetime "created_at",                                                                                     :null => false
+    t.datetime "updated_at",                                                                                     :null => false
+    t.string   "line_parse_pattern",                                    :default => "d(%d.%m.%Y);d(%H:%M:%S);a"
+    t.string   "line_element_delimiter",                                :default => ";"
+    t.boolean  "ignore_first_line",                                     :default => true
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"

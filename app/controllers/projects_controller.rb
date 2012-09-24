@@ -97,6 +97,19 @@ class ProjectsController < ApplicationController
   def fileupload
     @project = current_user.projects.find(params[:project_id])
 
+    @project.line_parse_pattern = params[:line_parse_pattern]
+    @project.line_element_delimiter = params[:line_element_delimiter]
+    @project.ignore_first_line = params[:ignore_first_line]
+
+    if not @project.save
+      # if options are corrupted
+      respond_to do |format|
+        format.html { redirect_to project_newfileupload_path(@project), alert: 'Options cannot be saved.' }
+        format.json { head :no_content }
+      end
+      return
+    end
+
     file = nil
 
     # get file object
@@ -112,7 +125,8 @@ class ProjectsController < ApplicationController
     end
   
     # add resque job
-    Resque.enqueue(InsertDataFromCSV, @project.id, file)
+    #Resque.enqueue(InsertDataFromCSV, @project.id, file)
+    MeasuredDatum.insert_data_from_csv(@project.id, file)
     
     respond_to do |format|
       format.html {redirect_to @project, notice: "File upload success. Please wait a few seconds, while all data is processed..."}

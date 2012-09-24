@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   has_many :approximated_measured_data, dependent: :destroy
   has_many :resolutions, dependent: :destroy
   
-  attr_accessible :description, :factor, :name, :unit, :comma_separated_resolutions
+  attr_accessible :description, :factor, :name, :unit, :comma_separated_resolutions, :line_parse_pattern, :line_element_delimiter, :ignore_first_line
   
   validates :name, :presence => true
   validates :name, :length => { :minimum => 3, :too_short => "Set a name with minimum of 3 chars." }

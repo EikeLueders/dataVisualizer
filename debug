@@ -920,3 +920,31 @@ Started GET "/projects/6/ajax_data_load.json?plotwidth=1102&from=1328339775519.5
 Processing by ProjectsController#ajax_data_load as JSON
   Parameters: {"plotwidth"=>"1102", "from"=>"1328339775519.553", "to"=>"1329011243229.0503", "project_id"=>"6"}
 Completed 200 OK in 224ms (Views: 23.7ms | ActiveRecord: 81.4ms)
+
+
+Started GET "/projects/6/newfileupload" for 127.0.0.1 at 2012-09-24 12:17:44 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"6"}
+  Rendered projects/newfileupload.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 89ms (Views: 83.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/6/newfileupload" for 127.0.0.1 at 2012-09-24 12:17:58 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"6"}
+  Rendered projects/newfileupload.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/6/newfileupload" for 127.0.0.1 at 2012-09-24 12:18:04 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"6"}
+  Rendered projects/newfileupload.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 85ms (Views: 81.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/6/newfileupload" for 127.0.0.1 at 2012-09-24 12:18:14 +0200
+Processing by ProjectsController#newfileupload as HTML
+  Parameters: {"project_id"=>"6"}
+  Rendered projects/newfileupload.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 26ms (Views: 22.8ms | ActiveRecord: 0.4ms)

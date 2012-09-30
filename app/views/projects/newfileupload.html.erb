@@ -10,28 +10,33 @@
 	<h3>File upload options</h3>
 	<div style="float:left">
 		Parse pattern for each line:<br />
-		<%= text_field_tag 'line_parse_pattern', @project.line_parse_pattern, :style => "width:100%" %><br/>
+		<%= text_field_tag 'line_parse_pattern', @project.line_parse_pattern, :style => "width:280px" %><br/>
+		<a href="javascript:;" onclick="$('#parse_infos').slideDown('slow');">&raquo; more infos...</a>
 		
-		<h5>Possible values</h5>
-		<ul style="list-style:none;margin-left:0">
-			<li><tt>d(<a href="http://www.ruby-doc.org/stdlib-1.9.3/libdoc/date/rdoc/DateTime.html#method-i-strftime" target="_blank"><i>datetime-format</i></a>)</tt> - datetime element</li> 
-			<li><tt>a</tt> - aggregated value</li>
-			<li><tt>i</tt> - isolated value</li>
-		</ul>
-		
-		<h5>Conditions</h5>
-		<ul style="list-style:disc">
-			<li>one or more <tt>d</tt>-values are required</li>
-			<li>least one of the <tt>a</tt>- or <tt>i</tt>-value</li>
-		</ul>
-		
-		<h5>Examples</h5>
-		<ul style="list-style:circle">
-			<li>d(%Y %m);d(%d);i;d(%T)</li>
-			<li>a;i;d(%F)</li>
-		</ul>
+		<div id="parse_infos" style="display:none;">
+			<h5>Possible values</h5>
+			<ul style="list-style:none;margin-left:0">
+				<li><tt>d(<a href="http://www.ruby-doc.org/stdlib-1.9.3/libdoc/date/rdoc/DateTime.html#method-i-strftime" target="_blank"><i>datetime-format</i></a>)</tt> - datetime element</li> 
+				<li><tt>a</tt> - aggregated value</li>
+				<li><tt>i</tt> - isolated value</li>
+			</ul>
+			
+			<h5>Conditions</h5>
+			<ul style="list-style:disc">
+				<li>one or more <tt>d</tt>-values</li>
+				<li>least one of the <tt>a</tt>- or <tt>i</tt>-value</li>
+			</ul>
+			
+			<h5>Examples</h5>
+			<ul style="list-style:circle">
+				<li>d(%Y %m);d(%d);i;d(%T)</li>
+				<li>a;i;d(%F)</li>
+			</ul>
+			
+			<a href="javascript:;" onclick="$('#parse_infos').slideUp('slow');">&laquo; hide</a>
+		</div>
 	</div>
-	<div style="float:left;margin-left:30px">
+	<div style="float:left;margin-left:20px">
 		Line element delimiter:<br />
 		<%= text_field_tag 'line_element_delimiter', @project.line_element_delimiter, :size => 1, :max_length => 1, :style => "width:30px" %>
 		<br />
